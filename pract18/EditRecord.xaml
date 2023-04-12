@@ -1,0 +1,41 @@
+﻿<Window x:Class="pract18.EditRecord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pract18"
+        mc:Ignorable="d"
+        Title="Изменить запись" Height="450" Width="400" Loaded="EditWindow_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Наименование лекарства" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+        <Label Content="Стоимость одной единицы" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="Количество единиц" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Дата изготовления" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Срок годности" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0"/>
+        <Label Content="Название фабрики" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0"/>
+        <Label Content="Адрес фабрики" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="0"/>
+        <Button Content="Изменить" Margin="5" Grid.Row="7" Grid.Column="0" Click="Edit_Click"/>
+        <Button Content="Отмена" Margin="5" Grid.Row="7" Grid.Column="1" Click="Cansel_Click"/>
+        <TextBox x:Name="name" Margin="5" Grid.Row="0" Grid.Column="1"/>
+        <TextBox x:Name="cost" Margin="5" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="number" Margin="5" Grid.Row="2" Grid.Column="1"/>
+        <DatePicker x:Name="productDate" Margin="5" Grid.Row="3" Grid.Column="1"/>
+        <DatePicker x:Name="exspirationDate" Margin="5" Grid.Row="4" Grid.Column="1"/>
+        <TextBox x:Name="factoryName" Margin="5" Grid.Row="5" Grid.Column="1"/>
+        <TextBox x:Name="factoryAddress" Margin="5" Grid.Row="6" Grid.Column="1"/>
+    </Grid>
+</Window>

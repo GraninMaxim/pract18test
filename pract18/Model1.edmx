@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Medicines">
+          <Key>
+            <PropertyRef Name="Name of the medicine" />
+          </Key>
+          <Property Name="Name of the medicine" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="Number of units" Type="int" />
+          <Property Name="Product date" Type="date" />
+          <Property Name="Expiration date" Type="date" />
+          <Property Name="Factory name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Factory address" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Function Name="DeleteMedicines" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="Medicines" EntityType="Self.Medicines" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Name_of_the_medicine" />
+          </Key>
+          <Property Name="Name_of_the_medicine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Number_of_units" Type="Int32" />
+          <Property Name="Product_date" Type="DateTime" Precision="0" />
+          <Property Name="Expiration_date" Type="DateTime" Precision="0" />
+          <Property Name="Factory_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Factory_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Accounting_of_medicinesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <FunctionImport Name="DeleteMedicines">
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Accounting_of_medicinesEntities">
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="Model.Medicine">
+              <MappingFragment StoreEntitySet="Medicines">
+                <ScalarProperty Name="Name_of_the_medicine" ColumnName="Name of the medicine" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Number_of_units" ColumnName="Number of units" />
+                <ScalarProperty Name="Product_date" ColumnName="Product date" />
+                <ScalarProperty Name="Expiration_date" ColumnName="Expiration date" />
+                <ScalarProperty Name="Factory_name" ColumnName="Factory name" />
+                <ScalarProperty Name="Factory_address" ColumnName="Factory address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteMedicines" FunctionName="Хранилище Model.DeleteMedicines" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
